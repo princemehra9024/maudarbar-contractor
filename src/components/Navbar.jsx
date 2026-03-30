@@ -24,7 +24,11 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    setMenuOpen(false)
+    // Avoid synchronous setState during render/effect
+    const timer = setTimeout(() => {
+      setMenuOpen(false)
+    }, 0)
+    return () => clearTimeout(timer)
   }, [location])
 
   useEffect(() => {

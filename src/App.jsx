@@ -41,14 +41,35 @@ function initLenis() {
 }
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
+
   useEffect(() => {
-    if (lenis) {
-      lenis.scrollTo(0, { immediate: true })
+    if (hash) {
+      const targetElement = document.querySelector(hash)
+      if (targetElement) {
+        // Delay slightly to ensure page layout is complete
+        const timer = setTimeout(() => {
+          if (lenis) {
+            lenis.scrollTo(hash, {
+              offset: -80, // Offset for fixed navbar
+              duration: 1.5,
+              immediate: false
+            })
+          } else {
+            targetElement.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 100)
+        return () => clearTimeout(timer)
+      }
     } else {
-      window.scrollTo(0, 0)
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: true })
+      } else {
+        window.scrollTo(0, 0)
+      }
     }
-  }, [pathname])
+  }, [pathname, hash])
+
   return null
 }
 

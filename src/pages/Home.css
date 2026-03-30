@@ -214,6 +214,11 @@
   background: var(--color-bg-secondary);
 }
 
+.home-videos__cta {
+  text-align: center;
+  margin-top: 50px;
+}
+
 /* ========== SHARED VIDEO CARD STYLES ========== */
 .video-card {
   background: var(--color-bg-secondary);

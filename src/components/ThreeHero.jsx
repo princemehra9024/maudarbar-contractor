@@ -29,22 +29,22 @@ function GoldSphere() {
   )
 }
 
+// Extract random generation to avoid calling impure Math.random during render
+const generateCubes = () =>
+  Array.from({ length: 8 }, () => ({
+    position: [
+      (Math.random() - 0.5) * 8,
+      (Math.random() - 0.5) * 6,
+      (Math.random() - 0.5) * 4 - 2,
+    ],
+    scale: 0.15 + Math.random() * 0.25,
+    speed: 0.2 + Math.random() * 0.5,
+    rotSpeed: 0.3 + Math.random() * 0.5,
+  }))
+
 function FloatingCubes() {
   const groupRef = useRef()
-  const cubes = useMemo(
-    () =>
-      Array.from({ length: 8 }, (_, i) => ({
-        position: [
-          (Math.random() - 0.5) * 8,
-          (Math.random() - 0.5) * 6,
-          (Math.random() - 0.5) * 4 - 2,
-        ],
-        scale: 0.15 + Math.random() * 0.25,
-        speed: 0.2 + Math.random() * 0.5,
-        rotSpeed: 0.3 + Math.random() * 0.5,
-      })),
-    []
-  )
+  const cubes = useMemo(() => generateCubes(), [])
 
   useFrame((state) => {
     if (groupRef.current) {
@@ -76,19 +76,21 @@ function FloatingCubes() {
   )
 }
 
+const generateParticles = (count) => {
+  const arr = new Float32Array(count * 3)
+  for (let i = 0; i < count; i++) {
+    arr[i * 3] = (Math.random() - 0.5) * 16
+    arr[i * 3 + 1] = (Math.random() - 0.5) * 12
+    arr[i * 3 + 2] = (Math.random() - 0.5) * 8
+  }
+  return arr
+}
+
 function Particles() {
   const particlesRef = useRef()
   const count = 200
 
-  const positions = useMemo(() => {
-    const arr = new Float32Array(count * 3)
-    for (let i = 0; i < count; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * 16
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 12
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 8
-    }
-    return arr
-  }, [])
+  const positions = useMemo(() => generateParticles(count), [count])
 
   useFrame((state) => {
     if (particlesRef.current) {
