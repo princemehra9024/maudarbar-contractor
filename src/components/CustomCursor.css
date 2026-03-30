@@ -1,0 +1,59 @@
+body {
+  cursor: none; /* Hide default cursor if using custom cursor */
+}
+
+a, button, input, .btn, .project-card, .service-card {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-orange);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-orange);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s, transform 0.1s;
+}
+
+/* Hover State */
+.cursor--hover {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 102, 0, 0.1);
+  border-color: transparent;
+  backdrop-filter: blur(2px);
+}
+
+.dot--hover {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  /* Disable on mobile devices */
+  body, a, button, input, .btn, .project-card, .service-card {
+    cursor: auto !important;
+  }
+  .custom-cursor, .custom-cursor-dot {
+    display: none;
+  }
+}

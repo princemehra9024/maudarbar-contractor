@@ -1,0 +1,274 @@
+/* ========================================
+   MAHU DARBAR — KTM-Inspired Dark + Orange
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+  --color-bg: #0d0d0d;
+  --color-bg-secondary: #141414;
+  --color-bg-card: #1a1a1a;
+  --color-bg-glass: rgba(20, 20, 20, 0.7);
+  --color-orange: #FF6600;
+  --color-orange-light: #FF8533;
+  --color-orange-dark: #E55A00;
+  --color-orange-glow: rgba(255, 102, 0, 0.25);
+  --color-white: #ffffff;
+  --color-text: #d0d0d0;
+  --color-text-muted: #808080;
+  --color-border: rgba(255, 102, 0, 0.15);
+  --color-border-light: rgba(255, 255, 255, 0.06);
+
+  --font-heading: 'Oswald', Impact, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-spring: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.6);
+  --shadow-orange: 0 4px 30px rgba(255, 102, 0, 0.2);
+
+  --container-max: 1280px;
+  --container-wide: 1440px;
+  --section-padding: 100px 0;
+  --section-padding-mobile: 60px 0;
+}
+
+/* --- Reset --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+#root {
+  /* Only clip horizontal overflow, never block vertical scroll */
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-white);
+  line-height: 1.1;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); }
+h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); }
+h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
+h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+
+p {
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+/* --- Utility Classes --- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-wide {
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: var(--section-padding);
+  position: relative;
+}
+
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::before {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: var(--color-orange);
+}
+
+.section-title {
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 550px;
+  line-height: 1.7;
+}
+
+.text-orange { color: var(--color-orange); }
+.text-center { text-align: center; }
+.text-center .section-subtitle { margin: 0 auto; }
+.text-center .section-label::before { display: none; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--color-orange);
+  color: var(--color-white);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
+  padding: 14px 40px;
+}
+
+.btn-primary:hover {
+  background: var(--color-orange-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-orange);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-orange);
+  color: var(--color-orange);
+  background: transparent;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
+  padding: 14px 40px;
+}
+
+.btn-outline:hover {
+  background: var(--color-orange);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.glass-card {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+}
+
+.orange-line {
+  width: 50px;
+  height: 3px;
+  background: var(--color-orange);
+  margin-bottom: 16px;
+}
+
+/* --- Diagonal cut decoration --- */
+.diagonal-cut {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 0 100%);
+}
+
+/* --- Page Transition --- */
+.page-wrapper {
+  min-height: 100vh;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-orange-dark);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-orange);
+}
+
+/* --- Selection --- */
+::selection {
+  background: var(--color-orange);
+  color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--section-padding-mobile);
+  }
+
+  .container, .container-wide {
+    padding: 0 5vw; /* Scales infinitely down to 320px safely */
+  }
+
+  .btn {
+    padding: 14px 28px; /* Ensures minimum 44px touch-target height */
+    font-size: 0.9rem;
+  }
+}
