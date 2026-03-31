@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import AnimatedSection from '../components/AnimatedSection'
 import ProjectCard from '../components/ProjectCard'
 import ImageModal from '../components/ImageModal'
-import { videos, getEmbedUrl } from '../data/videoData'
+import { videos, getEmbedUrl, getSrcDoc } from '../data/videoData'
 import './Projects.css'
 
 const categories = ['All', 'Residential', 'Commercial', 'Renovation', 'Interior']
@@ -36,7 +36,6 @@ const allProjects = [
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedImage, setSelectedImage] = useState(null)
-  const [activeVideo, setActiveVideo] = useState(null)
   const heroRef = useRef(null)
 
   const filtered = activeFilter === 'All'
@@ -110,36 +109,14 @@ export default function Projects() {
               <AnimatedSection key={v.id} delay={i * 0.1}>
                 <div className="video-card">
                   <div className="video-card__content">
-                    {activeVideo === v.id ? (
-                      <iframe
-                        src={`${getEmbedUrl(v)}&autoplay=1`}
-                        title={v.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    ) : (
-                      <div 
-                        className="video-card__thumbnail"
-                        onClick={() => setActiveVideo(v.id)}
-                      >
-                        {/* Background blurred image */}
-                        <img 
-                          src={`https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`} 
-                          alt={v.title}
-                          className="video-card__thumbnail-bg"
-                        />
-                        {/* Actual centered image */}
-                        <div className="video-card__thumbnail-overlay">
-                          <img 
-                            src={`https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`} 
-                            alt={v.title}
-                          />
-                        </div>
-                        <div className="video-card__play">
-                          <span className="play-icon">▶</span>
-                        </div>
-                      </div>
-                    )}
+                    <iframe
+                      src={getEmbedUrl(v)}
+                      srcDoc={getSrcDoc(v)}
+                      title={v.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      loading="lazy"
+                    />
                   </div>
                   <div className="video-card__info">
                     <p className="video-card__category">{v.category}</p>

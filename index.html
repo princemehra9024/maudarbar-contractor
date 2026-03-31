@@ -4,13 +4,77 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Mahu Darbar — Premium marble & tiles contractor in Rajasthan. Italian marble, granite, designer tiles installation. 15+ years of excellence. Call: 9509694042" />
-    <meta name="keywords" content="marble contractor, tiles contractor, Mahu Darbar, Rajasthan, Italian marble, granite, designer tiles, flooring, marble installation" />
-    <meta name="theme-color" content="#0a0a0a" />
+    
+    <!-- Primary Meta Tags -->
     <title>Mahu Darbar — Premium Marble & Tiles Contractor Since 2009</title>
+    <meta name="title" content="Mahu Darbar — Premium Marble & Tiles Contractor Since 2009" />
+    <meta name="description" content="Mahu Darbar — Premium marble & tiles contractor in Rajasthan. Italian marble, granite, designer tiles installation. 15+ years of excellence. Call: 9509694042" />
+    <meta name="keywords" content="marble contractor, tiles contractor, Mahu Darbar, Rajasthan marble contractor, Italian marble fitting, granite installation, designer tiles, flooring expert, marble installation, best marble contractor in Rajasthan, interior design, construction, civil contractor, home renovation, premium marble, vitrified tiles, bathroom tiling, kitchen granite, stair marble, wall cladding, Kishangarh marble, Makrana marble, building contractor, floor polishing, tile fixing" />
+    <meta name="author" content="Mahu Darbar" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mahudarbar.com/" />
+    <meta property="og:title" content="Mahu Darbar — Premium Marble & Tiles Contractor Since 2009" />
+    <meta property="og:description" content="Mahu Darbar — Premium marble & tiles contractor in Rajasthan. Italian marble, granite, designer tiles installation. 15+ years of excellence. Call: 9509694042" />
+    <meta property="og:image" content="https://mahudarbar.com/og-image.jpeg" />
+    <meta property="og:site_name" content="Mahu Darbar Construction" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://mahudarbar.com/" />
+    <meta property="twitter:title" content="Mahu Darbar — Premium Marble & Tiles Contractor Since 2009" />
+    <meta property="twitter:description" content="Mahu Darbar — Premium marble & tiles contractor in Rajasthan. Italian marble, granite, designer tiles installation. 15+ years of excellence. Call: 9509694042" />
+    <meta property="twitter:image" content="https://mahudarbar.com/og-image.jpeg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mahudarbar.com/" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <style>
+        .md-preloader-bg {
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background-color: #0a0a0a;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          z-index: 99999;
+        }
+        .md-spinner {
+          width: 48px;
+          height: 48px;
+          border: 3px solid rgba(255, 102, 0, 0.2);
+          border-top-color: #ff6600;
+          border-radius: 50%;
+          animation: md-spin 1s linear infinite;
+          margin-bottom: 24px;
+        }
+        .md-loading-text {
+          color: #ffffff;
+          font-family: 'Inter', sans-serif;
+          font-size: 13px;
+          letter-spacing: 4px;
+          text-transform: uppercase;
+          animation: md-pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes md-spin { 
+          to { transform: rotate(360deg); } 
+        }
+        @keyframes md-pulse {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
+        }
+      </style>
+      <div class="md-preloader-bg">
+        <div class="md-spinner"></div>
+        <div class="md-loading-text">Loading...</div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

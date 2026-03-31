@@ -252,6 +252,9 @@
   height: 100%;
   border: none;
   background: #000;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
 }
 
 .video-card__thumbnail {

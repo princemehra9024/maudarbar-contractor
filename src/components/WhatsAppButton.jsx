@@ -4,7 +4,7 @@ import './WhatsAppButton.css'
 export default function WhatsAppButton() {
   const [expanded, setExpanded] = useState(false)
 
-  const waNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '9509694042'
+  const waNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '919509694042'
   const appName = import.meta.env.VITE_APP_NAME || 'Mahu Darbar'
   const waText = encodeURIComponent(`Hello ${appName}! I'm interested in your construction services.`)
 

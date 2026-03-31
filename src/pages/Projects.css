@@ -155,6 +155,9 @@
   height: 100%;
   border: none;
   background: #000;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
 }
 
 /* For vertical shorts embed, it might have black bars, let's ensure it fits */

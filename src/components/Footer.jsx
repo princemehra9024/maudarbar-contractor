@@ -52,8 +52,16 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>© {new Date().getFullYear()} Mahu Darbar — Marble & Tiles Contractor. All rights reserved.</p>
-          <p className="footer__credit">Crafted with ◆ excellence</p>
+          <div className="footer__bottom-content">
+            <div className="footer__seo-text">
+              <strong>Our Expertise:</strong> Italian Marble Flooring, Granite Installation, Designer Tiles, Bathroom Tiling, Wall Cladding, Floor Polishing, Staircase Work, Commercial Stone Work, Residential Renovation.<br/>
+              <strong>Service Areas:</strong> Jaipur, Udaipur, Jodhpur, Ajmer, Kishangarh, Makrana, and across Rajasthan.
+            </div>
+            <div className="footer__credits-row">
+              <p>© {new Date().getFullYear()} Mahu Darbar — Marble & Tiles Contractor. All rights reserved.</p>
+              <p className="footer__credit">Crafted with ◆ excellence</p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
